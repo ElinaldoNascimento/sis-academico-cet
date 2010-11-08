@@ -28,6 +28,13 @@ class AdminDao {
         $this->connection->commit();
         return $id;
     }
+    public function retorna($admin){
+        $sql = "select*from admin where id =:id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(":id",$id);
+        $stmt->execute();
+        return $stmt->fetchObject();
+    }
     public function verifica($admin){
         $sql = "select count(*) from admin where login =:login and senha =:senha";
         $stmt = $this->connection->prepare($sql);

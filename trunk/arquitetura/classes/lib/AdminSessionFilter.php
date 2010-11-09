@@ -16,9 +16,7 @@ class AdminSessionFilter {
         $dao = new AdminDao();
         $admin->setLogin(trim($_POST['login']));
         $admin->setSenha(md5(trim($_POST['senha'])));
-        $value = $dao->verifica($admin);
-
-        if($value == 0) {
+        if($dao->verifica($admin) == null) {
             header("Location:login.php");
         }
 
@@ -43,11 +41,12 @@ class AdminSessionFilter {
             $dao = new AdminDao();
             $admin->setLogin($login);
             $admin->setSenha($senha);
-            $value = $dao->verifica($admin);
-            if($value == 0) {
+            $admin_obj = $dao->verifica($admin);
+            if($admin_obj == null) {
                 header("Location:login.php");
             }
         }
+        return $admin_obj;
     }
     public static function logout() {
         session_start();

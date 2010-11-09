@@ -14,6 +14,15 @@ class Administrador {
     private $login;
     private $senha;
     private $nivel;
+    private $ativo;
+
+    public function getAtivo() {
+        return $this->ativo;
+    }
+
+    public function setAtivo($ativo) {
+        $this->ativo = $ativo;
+    }
 
     public function getNome() {
         return $this->nome;

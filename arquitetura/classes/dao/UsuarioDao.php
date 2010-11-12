@@ -29,7 +29,7 @@ class UsuarioDao {
         $this->connection->commit();
         return $id;
     }
-    public function retorna($admin){
+    public function retorna($id){
         $sql = "select*from usuario where id =:id";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(":id",$id);

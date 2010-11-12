@@ -1,16 +1,18 @@
 <?php
-include '../config/load-classes.php';
+include '../../config/load-classes.php';
 $admin = AdminSessionFilter::authSession();
+$dao = new UsuarioDao();
+$user = $dao->retorna($_GET['id']);
 ?>
 
-<a href="index.php">Index</a><br>
-<a href="logout.php">Logout</a><br>
+<a href="edit.php?id=<?php echo $user->id; ?>">Editar</a><br><br>
 
-<?php
-if ($admin->nivel == 0) {
-?>
-<a href="/usuario/index.php">Administrar Usuários</a>
-<?php } ?>
+Nome: <?php echo $user->nome; ?><br>
+Login: <?php echo $user->login; ?><br>
+Senha: ******
+
+
+
 
 
    

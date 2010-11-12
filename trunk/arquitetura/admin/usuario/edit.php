@@ -9,7 +9,7 @@ $admin = AdminSessionFilter::authSession();
 <?php
 if ($admin->nivel == 0) {
 ?>
-<a href="usuarios.php">Administrar Usuários</a>
+<a href="/usuario/index.php">Administrar Usuários</a>
 <?php } ?>
 
 

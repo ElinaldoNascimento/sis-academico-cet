@@ -19,7 +19,7 @@ class AdminDao {
         $sql = "insert into admin(nome,login,senha,nivel) values(:nome,:login,:senha,:nivel)";
         $this->connection->beginTransaction();
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam(":nome",$admin->getNome);
+        $stmt->bindParam(":nome",$admin->getNome());
         $stmt->bindParam(":login",$admin->getLogin());
         $stmt->bindParam(":senha",$admin->getSenha());
         $stmt->bindParam(":nivel",$admin->getNivel());

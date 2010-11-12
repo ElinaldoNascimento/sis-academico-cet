@@ -34,7 +34,24 @@ if(isset ($_POST["submit"])){
 
    $pessoaDao->insertPessoa($pessoa);
 
+   $pessoaFisica = new PessoaFisica();
+   
+   $pessoaFisica->setCpf($_POST["cpf"]);
+   $pessoaFisica->setDataNascimento($_POST["dataNascimento"]);
+   $pessoaFisica->setEstadoCivil($_POST["estadoCivil"]);
+   $pessoaFisica->setEstadoExpedidor($_POST["estadoExpedidor"]);
+   $pessoaFisica->setNacionalidade($_POST["nacionalidade"]);
+   $pessoaFisica->setNaturalidade($_POST["naturalidade"]);
+   $pessoaFisica->setOrgaoExpedidor($_POST["orgaoExpedidor"]);
+   $pessoaFisica->setRg($_POST["rg"]);
+   $pessoaFisica->setSexo($_POST["sexo"]);
+   $pessoaFisica->setSobrenome($_POST["sobrenome"]);
+   $pessoaFisica->setId_pessoaFisica($pessoa->getId_pessoa());
 
+   $pessoaFisicaDao = new PessoaFisicaDao();
+   $pessoaFisicaDao->insertPessoaFisica($pessoaFisica);
+
+   
     echo "Dados Inseridos Com Sucesso";
 
 }

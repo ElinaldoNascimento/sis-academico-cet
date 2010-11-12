@@ -9,7 +9,7 @@
  *
  * @author Marcus Vinicius
  */
-class Administrador {
+class Usuario {
     private $nome;
     private $login;
     private $senha;

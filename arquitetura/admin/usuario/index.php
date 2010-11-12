@@ -5,12 +5,8 @@ $admin = AdminSessionFilter::authSession();
 
 <a href="index.php">Index</a><br>
 <a href="logout.php">Logout</a><br>
-
-<?php
-if ($admin->nivel == 0) {
-?>
-<a href="usuarios.php">Administrar Usuários</a>
-<?php } ?>
+<a href="novo.php">Novo</a><br>
+<a href="lista.php">Lista</a><br>
 
 
    

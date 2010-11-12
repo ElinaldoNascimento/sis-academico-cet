@@ -9,7 +9,7 @@
  *
  * @author Marcus Vinicius
  */
-class AdminDao {
+class UsuarioDao {
     private $connection = null;
 
     public function  __construct() {

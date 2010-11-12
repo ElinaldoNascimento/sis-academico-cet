@@ -12,18 +12,18 @@
 class AdminSessionFilter {
     
     public static function authUser() {
-        $admin = new Administrador();
-        $dao = new AdminDao();
-        $admin->setLogin(trim($_POST['login']));
-        $admin->setSenha(md5(trim($_POST['senha'])));
-        if($dao->verifica($admin) == null) {
+        $usuario = new Usuario();
+        $dao = new UsuarioDao();
+        $usuario->setLogin(trim($_POST['login']));
+        $usuario->setSenha(md5(trim($_POST['senha'])));
+        if($dao->verifica($usuario) == null) {
             header("Location:login.php");
         }
 
         else {
             session_start();
-            $_SESSION['login'] = $admin->getLogin();
-            $_SESSION['senha'] = $admin->getSenha();
+            $_SESSION['login'] = $usuario->getLogin();
+            $_SESSION['senha'] = $usuario->getSenha();
             header("Location:index.php");
         }
     }
@@ -37,16 +37,16 @@ class AdminSessionFilter {
             header("Location:login.php");
         }
         else {
-            $admin = new Administrador();
-            $dao = new AdminDao();
-            $admin->setLogin($login);
-            $admin->setSenha($senha);
-            $admin_obj = $dao->verifica($admin);
-            if($admin_obj == null) {
+            $usuario = new Usuario();
+            $dao = new UsuarioDao();
+            $usuario->setLogin($login);
+            $usuario->setSenha($senha);
+            $user = $dao->verifica($usuario);
+            if($user == null) {
                 header("Location:login.php");
             }
         }
-        return $admin_obj;
+        return $user;
     }
     public static function logout() {
         session_start();
@@ -55,13 +55,6 @@ class AdminSessionFilter {
         header("Location:login.php");
     }
     
-    public function  __get($attr) {
-        if($attr == "Admin"){
-            return new Administrador();
-        }
-        else if($attr == "AdminDao"){
-            return new AdminDao();
-        }
-    }
+    
 }
 ?>

@@ -8,13 +8,21 @@ class Aluno extends PessoaFisica{
 
     private $id_aluno = null;
     private $matricula = null;
+    private $id_pessoafisica_foreign = null;
 
     public function getId_aluno() {
 
         return $this->id_aluno;
     }
+    public function getId_pessoafisica_foreign() {
+        return $this->id_pessoafisica_foreign;
+    }
 
-    public function setId_aluno($id_aluno) {
+    public function setId_pessoafisica_foreign($id_pessoafisica_foreign) {
+        $this->id_pessoafisica_foreign = $id_pessoafisica_foreign;
+    }
+
+        public function setId_aluno($id_aluno) {
         $this->id_aluno = $id_aluno;
     }
 

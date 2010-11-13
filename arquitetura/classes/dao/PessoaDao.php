@@ -12,7 +12,7 @@ class PessoaDao {
         $this->connection = Conexao::getConnection();
     }
 
-    public function insertPessoa($pessoa){
+    public function insertPessoa(Pessoa $pessoa){
 
         $sql = "insert into pessoa(nome,id_contato) values(:nome,:id_contato)";
         
@@ -26,6 +26,8 @@ class PessoaDao {
 
         $id_pessoa = $this->connection->lastInsertId();
         $this->connection->commit();
+
+        $pessoa->setId_pessoa($id_pessoa);
         
         return $id_pessoa;
     }

@@ -7,7 +7,7 @@
 class PessoaFisica extends Pessoa  {
 
 
-
+    private $id_pessoa_foreign = null;
     private $id_pessoaFisica = null;
     private $cpf = null;
     private $estadoCivil = null;
@@ -107,6 +107,17 @@ class PessoaFisica extends Pessoa  {
     public function setEstadoExpedidor($estadoExpedidor) {
         $this->estadoExpedidor = $estadoExpedidor;
     }
+    public function getId_pessoa_foreign() {
+        return $this->id_pessoa_foreign;
+    }
+
+    public function setId_pessoa_foreign($id_pessoa_foreign) {
+        $this->id_pessoa_foreign = $id_pessoa_foreign;
+    }
+
+
+     
+
 
 }
 ?>

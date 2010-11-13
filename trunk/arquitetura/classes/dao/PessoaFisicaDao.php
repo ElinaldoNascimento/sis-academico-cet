@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -8,46 +8,51 @@ class PessoaFisicaDao{
 
     private $connection = null;
 
-    function  __construct() {
+    public function  __construct() {
+
         $this->connection = Conexao::getConnection();
     }
 
-    public function insertPessoaFisica(PessoaFisica $pessoaFisica) {
+    public function insertPessoaFisica($pessoafisica) {
 
-        $sql = "insert into pessoaFisica(cpf,estadoCivil,sobrenome,dataNascimento
-            ,sexo,nacionalidade,naturalidade,rg,orgaoExpedidor,estadoExpedidor,id_pessoa)
+        $sql = "insert into `pessoafisica`(cpf,estadoCivil,sobrenome,dataNascimento,
+            sexo,nacionalidade,naturalidade,rg,orgaoExpedidor,estadoExpedidor,id_pessoa)
             values (:cpf,:estadoCivil,:sobrenome,:dataNascimento,:sexo,:nacionalidade,:naturalidade,
             :rg,:orgaoExpedidor,:estadoExpedidor,:id_pessoa)";
 
-        try{
         $this->connection->beginTransaction();
         $stmt = $this->connection->prepare($sql);
 
 
-        $stmt->beginParam(":cpf",$pessoaFisica->getCpf());
-        $stmt->beginParam(":estadoCivil",$pessoaFisica->getEstadoCivil());
-        $stmt->beginParam(":sobrenome",$pessoaFisica->getSobrenome());
-        $stmt->beginParam(":dataNascimento",$pessoaFisica->getDataNascimento());
-        $stmt->beginParam(":sexo",$pessoaFisica->getSexo());
-        $stmt->beginParam(":nacionalidade",$pessoaFisica->getNacionalidae());
-        $stmt->beginParam(":naturalidade",$pessoaFisica->getNaturalidade());
-        $stmt->beginParam(":rg",$pessoaFisica->getRg());
-        $stmt->beginParam(":orgaoExpedidor",$pessoaFisica->getOrgaoExpedidor());
-        $stmt->beginParam(":estadoExpedidor",$pessoaFisica->getEstadoExpedidor());
-        $stmt->beginParam(":id_pessoa",$pessoaFisica->getId_Pessoa());
+        $stmt->bindParam(":cpf",$pessoafisica->getCpf());
+        $stmt->bindParam(":estadoCivil",$pessoafisica->getEstadoCivil());
+        $stmt->bindParam(":sobrenome",$pessoafisica->getSobrenome());
+        $stmt->bindParam(":dataNascimento",$pessoafisica->getDataNascimento());
+        $stmt->bindParam(":sexo",$pessoafisica->getSexo());
+        $stmt->bindParam(":nacionalidade",$pessoafisica->getNacionalidade());
+        $stmt->bindParam(":naturalidade",$pessoafisica->getNaturalidade());
+        $stmt->bindParam(":rg",$pessoafisica->getRg());
+        $stmt->bindParam(":orgaoExpedidor",$pessoafisica->getEstadoExpedidor());
+        $stmt->bindParam(":estadoExpedidor",$pessoafisica->getOrgaoExpedidor());
+        $stmt->bindParam(":id_pessoa",$pessoafisica->getId_pessoa_foreign());
+
+
 
         $stmt->execute();
-        $id_pessoaFisica  = $this->connection->lastInsertId();
-        $this->connection->commit();
-        $pessoaFisica->setId_pessoaFisica($id_pessoaFisica);
-        
-        return $id_pessoaFisica;
+        $id_pessoafisica = $this->connection->lastInsertId();
 
-        }  catch (PDOException $e){
-            
-             $e->getMessage();
-             $stmt->rollback();
-        }
+        $this->connection->commit();
+
+
+        $pessoafisica->setId_pessoaFisica($id_pessoafisica);
+
+        return $id_pessoafisica;
+
+
     }
+
+
+
 }
+
 ?>

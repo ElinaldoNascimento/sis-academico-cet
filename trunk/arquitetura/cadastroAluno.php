@@ -31,11 +31,10 @@ if(isset ($_POST["submit"])){
 
 
    $pessoaDao = new PessoaDao();
-
    $pessoaDao->insertPessoa($pessoa);
 
    $pessoaFisica = new PessoaFisica();
-   
+
    $pessoaFisica->setCpf($_POST["cpf"]);
    $pessoaFisica->setDataNascimento($_POST["dataNascimento"]);
    $pessoaFisica->setEstadoCivil($_POST["estadoCivil"]);
@@ -46,12 +45,22 @@ if(isset ($_POST["submit"])){
    $pessoaFisica->setRg($_POST["rg"]);
    $pessoaFisica->setSexo($_POST["sexo"]);
    $pessoaFisica->setSobrenome($_POST["sobrenome"]);
-   $pessoaFisica->setId_pessoaFisica($pessoa->getId_pessoa());
+   $pessoaFisica->setId_pessoa_foreign($pessoa->getId_pessoa());
+
 
    $pessoaFisicaDao = new PessoaFisicaDao();
    $pessoaFisicaDao->insertPessoaFisica($pessoaFisica);
 
-   
+   $aluno = new Aluno();
+
+   $aluno->setMatricula($_POST["matricula"]);
+   $aluno->setId_pessoafisica_foreign($pessoaFisica->getId_pessoaFisica());
+
+
+   $alunoDao = new AlunoDao();
+   $alunoDao->insertAluno($aluno);
+
+
     echo "Dados Inseridos Com Sucesso";
 
 }

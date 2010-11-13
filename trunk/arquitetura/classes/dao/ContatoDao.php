@@ -12,9 +12,9 @@ class ContatoDao{
         $this->connection = Conexao::getConnection();
     }
 
-    public function insertContato($contato){
+    public function insertContato(Contato $contato){
 
-        $sql = "insert into contato(cidade,estado,numero,telefoneFixo,telefoneCelular,
+        $sql = "insert into `contato`(cidade,estado,numero,telefoneFixo,telefoneCelular,
             email,bairro,cep,endereco,complemento,observacao) values(:cidade,:estado,:numero,:telefoneFixo,:telefoneCelular,
             :email,:bairro,:cep,:endereco,:complemento,:observacao)" ;
      
@@ -38,6 +38,7 @@ class ContatoDao{
         $this->connection->commit();
 
         $contato->setId_contato($id_contato);
+        
         return $id_contato;
         
         

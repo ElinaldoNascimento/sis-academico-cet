@@ -33,5 +33,19 @@ class AlunoDao{
 
     }
 
+   public function selectAllAlunos(){
+
+       $sql = "select * from aluno,contato,pessoa,pessoafisica where
+           aluno.id_pessoafisica = pessoafisica.id_pessoafisica and
+           pessoafisica.id_pessoa = pessoa.id_pessoa and
+           pessoa.id_contato = contato.id_contato";
+
+
+       return $db = $this->connection->query($sql);
+   }
+
+
+
+
 }
 ?>

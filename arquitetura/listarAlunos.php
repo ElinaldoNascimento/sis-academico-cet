@@ -2,6 +2,7 @@
 
 <?php
 include 'config/load-classes.php';
+
 $alunoDao = new AlunoDao();
 foreach ($alunoDao->selectAllAlunos() as $rows){
 
@@ -13,6 +14,7 @@ foreach ($alunoDao->selectAllAlunos() as $rows){
     echo "Estado:  " .$rows["estado"]."<br/>";
     echo "Matricula:  " .$rows["matricula"]."<br/>";
     echo "<br/>-------------------------------------------------------------<br/>";
+
     
 }
 ?>

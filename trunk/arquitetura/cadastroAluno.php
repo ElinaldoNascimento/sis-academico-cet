@@ -61,7 +61,7 @@ if(isset ($_POST["submit"])){
    $alunoDao->insertAluno($aluno);
 
 
-    echo "Dados Inseridos Com Sucesso";
+   header("Location:listarAlunos.php");
 
 }
 ?>

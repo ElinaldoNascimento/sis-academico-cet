@@ -30,12 +30,11 @@ class UsuarioDao {
         return $id;
     }
     public function atualiza($usuario){
-        $sql = "update usuario nome =:nome,login =:login, senha := senha ,nivel :=nivel ,ativo =: ativo where id =:id";
+        $sql = "update usuario set nome =:nome,login =:login,nivel =:nivel, ativo =:ativo where id =:id";
         $this->connection->beginTransaction();
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(":nome",$usuario->getNome());
         $stmt->bindParam(":login",$usuario->getLogin());
-        $stmt->bindParam(":senha",$usuario->getSenha());
         $stmt->bindParam(":nivel",$usuario->getNivel());
         $stmt->bindParam(":ativo",$usuario->getAtivo());
         $stmt->bindParam(":id",$usuario->getId());

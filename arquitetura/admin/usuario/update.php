@@ -2,10 +2,10 @@
 
 include '../../config/load-classes.php';
 $usuario = AdminSessionFilter::authSession();
-
+$id = $_POST['id'];
 $user = new Usuario();
 $dao = new UsuarioDao();
-$user->setId($_POST['id']);
+$user->setId($id);
 $user->setNome(trim($_POST['nome']));
 $user->setLogin(trim($_POST['login']));
 $user->setNivel(trim($_POST['nivel']));
@@ -14,7 +14,7 @@ if (!empty($_POST['ativo'])) {
 } else {
     $user->setAtivo(0);
 }
-$id = $dao->adiciona($user);
+$dao->atualiza($user);
 header("Location: view.php?id={$id}");
 ?>
 

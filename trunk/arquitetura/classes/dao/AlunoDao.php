@@ -47,7 +47,7 @@ class AlunoDao{
    public function updateAluno(Aluno $aluno){
 
        $sql = "update aluno,contato,pessoa,pessoafisica set nome =?, sobrenome=?
-           where id_aluno=? and aluno.id_pessoafisica = pessoafisica.id_pessoafisica and
+           where aluno.id_aluno=? and aluno.id_pessoafisica = pessoafisica.id_pessoafisica and
            pessoafisica.id_pessoa = pessoa.id_pessoa and
            pessoa.id_contato = contato.id_contato";
 
@@ -81,6 +81,9 @@ class AlunoDao{
 
                        $aluno = new Aluno();
                        $aluno->setId_aluno($row["id_aluno"]);
+                       $aluno->setId_pessoa($row["id_pessoa"]);
+                       $aluno->setId_pessoaFisica($row["id_pessoaFisica"]);
+                       $aluno->setId_contato($row["id_contato"]);
                        $aluno->setNome($row["nome"]);
                        $aluno->setSobrenome($row["sobrenome"]);
                    }
@@ -94,8 +97,26 @@ class AlunoDao{
                echo $e->getMessage();
                die();
            }
-
     }
+    
+       public    function deleteAluno($aluno) {
+     
+           $sql = "delete from aluno where id_aluno=?;
+               delete from pessoa where id_pessoa=?;
+               delete from pessoafisica where id_pessoafisica=?;
+               delete from contato where id_contato=?;";
+           
+           $stmt = $this->connection->prepare($sql);
+           
+           $stmt->bindParam(1,$aluno->getId_aluno());
+           $stmt->bindParam(2,$aluno->getId_pessoa());
+           $stmt->bindParam(3,$aluno->getId_pessoafisica());
+           $stmt->bindParam(4,$aluno->getId_contato());
+           
+           $stmt->execute();
+           
+    }
+
 
 
 

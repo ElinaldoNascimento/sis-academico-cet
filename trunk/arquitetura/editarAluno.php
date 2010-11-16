@@ -21,9 +21,12 @@ if(isset ($_POST["submit"])){
 
 }
 
+
+   
 $showaluno = new AlunoDao();
 $aluno = new Aluno();
 $aluno = $showaluno->selectById($_GET["id_aluno"]);
+
 
 ?>
 

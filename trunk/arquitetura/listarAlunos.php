@@ -7,7 +7,7 @@
         </title>
     </head>
     <body>
-        <h3>Lista de Alunos</h3>
+        <h3>Lista de Alunos</h3><a href="cadastroAluno.html">Adicionar Aluno</a>
          <table width="600" border="1" cellpadding="0" cellspacing="0">
         <tr bgcolor="#CCCCCC">
             <td width="80" align="left"> ID_ALUNO </td>
@@ -32,6 +32,8 @@
         <td><?php echo $rows["endereco"];?></td>
         <td align="center"><a href="editarAluno.php?id_aluno=<?php echo $rows["id_aluno"];?>">
             [Editar]</a>
+        <a href="deleteAluno.php?id_aluno=<?php echo $rows["id_aluno"];?>">
+            [Deletar]</a></td>
         </tr>
         
        

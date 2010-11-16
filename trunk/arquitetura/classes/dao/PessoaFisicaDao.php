@@ -39,14 +39,14 @@ class PessoaFisicaDao{
 
 
         $stmt->execute();
-        $id_pessoafisica = $this->connection->lastInsertId();
+        $id_pessoaFisica = $this->connection->lastInsertId();
 
         $this->connection->commit();
 
 
-        $pessoafisica->setId_pessoaFisica($id_pessoafisica);
+        $pessoafisica->setId_pessoaFisica($id_pessoaFisica);
 
-        return $id_pessoafisica;
+        return $id_pessoaFisica;
 
 
     }

@@ -10,12 +10,22 @@
  * @author Marcus Vinicius
  */
 class Usuario {
+    private $id;
     private $nome;
     private $login;
     private $senha;
     private $nivel;
     private $ativo;
 
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    
     public function getAtivo() {
         return $this->ativo;
     }

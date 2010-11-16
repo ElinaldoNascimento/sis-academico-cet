@@ -50,7 +50,7 @@ class UsuarioDao {
         return $stmt->fetchObject();
     }
     public function verifica($usuario){
-        $sql = "select * from usuario where login =:login and senha =:senha";
+        $sql = "select * from usuario where login =:login and senha =:senha and ativo = 1";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(":login",$usuario->getLogin());
         $stmt->bindParam(":senha",$usuario->getSenha());

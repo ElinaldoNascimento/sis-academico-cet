@@ -1,0 +1,415 @@
+/*
+    Document   : geral
+    Created on : 15/11/2010, 18:06:17
+    Author     : Denilson
+    Description: Regras gerais de estilo do sistema acadêmico SIMBIOS
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
++----------------------------------------------------------------+
+	Reset - Geral CSS
++----------------------------------------------------------------+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*
++----------------------------------------------------------------+
+	Definicoes Gerais
++----------------------------------------------------------------+
+*/
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.border-top-none {
+    border-top: 0 none !important;
+}
+
+.border-bottom-none {
+    border-bottom: 0 none !important;
+}
+
+.border-right-menu {
+    float: left;
+    border-right: 1px solid #777776;
+}
+
+.border-left-menu {
+    float: left;
+    border-left: 1px solid #3b3b3a;
+}
+
+body {
+    font-size: 15px;
+    text-align: center;
+    background: #efefef;
+    font-family: Arial, sans-serif, Helvetica;
+}
+
+/*
++----------------------------------------------------------------+
+	Topo
++----------------------------------------------------------------+
+*/
+
+#topo {
+    width: 100%;
+    height: 140px;
+    background: url("../img/bg-topo.png");
+}
+
+#topo #box-logo {
+    float: left;
+    width: 16%;
+    height: 100%;
+    margin-left: 20px;
+}
+
+#topo #logo {
+    float: left;
+    width: 71px;
+    height: 79px;
+    margin-left: 20%;
+    margin-top: 20px;
+}
+
+#topo #header-topo {
+    float: left;
+    width: 82%;
+    height: 50px;
+}
+
+#topo #header-topo span#saudacao {
+    float: left;
+    color: #c8c8c6;
+    margin-top: 10px;
+}
+
+#topo #header-topo strong#usuario {
+    float: left;
+    color: #fff;
+    margin: 10px 0 0 10px;
+}
+
+#topo #header-topo #box-info-sistema {
+    float: left;
+    height: 41px;
+    width: 632px;
+    margin-left: 10px;
+    background: url("../img/bg-info-sistema.png") no-repeat;
+}
+
+#topo #header-topo #box-info-sistema ul {
+    margin: 12px 0 0 60px;
+}
+
+#topo #header-topo #box-info-sistema ul li {
+    float: left;
+    padding: 0 30px;
+}
+
+#topo #header-topo #box-info-sistema ul li span {
+    float: left;
+    color: #c0c0be;
+}
+
+#topo #header-topo #box-info-sistema ul li span#data {
+    float: left;
+    color: #fff;
+    margin-left: 10px;
+}
+
+#topo #header-topo #box-info-sistema ul li a {
+    color: #fff;
+}
+
+#topo #header-topo #box-info-sistema ul li a:hover {
+    text-decoration: underline;
+}
+
+#topo #header-topo a#logout {
+    color: #fff;
+    float: right;
+    padding: 2px 15px;
+    background: #414040;
+    margin: 10px 100px 0 0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#topo #header-topo a#logout:hover {
+    text-decoration: underline;
+}
+
+/*
++----------------------------------------------------------------+
+	Box Menu Topo
++----------------------------------------------------------------+
+*/
+
+#box-menu-topo {
+    float: left;
+    width: 82%;
+    margin-top: 10px;
+}
+
+#box-menu-topo ul {
+    float: left;
+    margin: 0 20px;
+}
+
+#box-menu-topo ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#box-menu-topo ul#inicio-cadastro {
+    width: 250px;
+    margin: 0;
+}
+
+#box-menu-topo ul#inicio-cadastro li {
+    display: inline;
+    float: left;
+    padding-top: 25px;
+}
+
+#box-menu-topo ul#inicio-cadastro li#inicio {
+    width: 100px;
+    height: 45px;
+    border-right: 1px solid #9b9b99;
+}
+
+#box-menu-topo ul#inicio-cadastro li#inicio a {
+    color: #c8c8c6;
+    font-size: 25px;
+}
+
+#box-menu-topo ul#inicio-cadastro li#atividades {
+    width: 100px;
+    height: 45px;
+    border-left: 1px solid #4b4b49;
+}
+
+#box-menu-topo ul#inicio-cadastro li#atividades a {
+    color: #c8c8c6;
+    font-size: 15px;
+}
+
+#box-menu-topo ul#menu-cadastro {
+
+}
+
+#box-menu-topo ul#menu-cadastro li {
+    display: inline;
+    float: left;
+    margin: 0 30px;
+}
+
+#box-menu-topo ul#menu-cadastro li a {
+    position: relative;
+    float: left;
+    height: 70px;
+    width: 70px;
+}
+
+#box-menu-topo ul#menu-cadastro li a#cadastro-professor {
+    background: url("../img/bg-icones.png") 16px 0 no-repeat;
+}
+
+#box-menu-topo ul#menu-cadastro li a#cadastro-aluno {
+    background: url("../img/bg-icones.png") -36px 0 no-repeat;
+}
+
+#box-menu-topo ul#menu-cadastro li a span {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+#box-menu-topo ul#menu-pesquisa {
+
+}
+
+#box-menu-topo ul#menu-pesquisa li {
+    display: inline;
+    float: left;
+    margin: 0 30px;
+}
+
+#box-menu-topo ul#menu-pesquisa li a {
+    position: relative;
+    float: left;
+    height: 70px;
+    width: 70px;
+}
+
+#box-menu-topo ul#menu-pesquisa li a#pesquisa-professor {
+    background: url("../img/bg-icones.png") -88px 0 no-repeat;
+}
+
+#box-menu-topo ul#menu-pesquisa li a#pesquisa-aluno {
+    background: url("../img/bg-icones.png") -146px 0 no-repeat;
+}
+
+#box-menu-topo ul#menu-pesquisa li a span {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+/*
++----------------------------------------------------------------+
+	Box Corpo
++----------------------------------------------------------------+
+*/
+
+#box-corpo {
+    width: 960px;
+    margin: 0 auto;
+    min-height: 600px;
+    ddisplay: inline-table;
+    border: 1px solid #c2c1c1;
+    background: #fff;
+    border-top: 0;
+    padding: 20px;
+}
+
+/*
++----------------------------------------------------------------+
+	Corpo
++----------------------------------------------------------------+
+*/
+
+#corpo {
+    width: 920px;
+    padding: 20px;
+    margin: 0 auto;
+    min-height: 600px;
+    background: #efefef;
+    display: inline-table;
+}
+
+#corpo h3 {
+    width: 100%;
+    float: right;
+    color: #565654;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2dfdf;
+}
+
+#corpo h3 strong {
+    float: right;
+    color: #565654;
+}
+
+/*
++----------------------------------------------------------------+
+	Box Conteudo
++----------------------------------------------------------------+
+*/
+
+#box-conteudo {
+    float: left;
+    width: 100%;
+    border-top: 1px solid #fff;
+    padding-top: 20px;
+}
+
+/*
++----------------------------------------------------------------+
+	Menu
++----------------------------------------------------------------+
+*/
+
+#box-conteudo #menu {
+    width: 25%;
+    float: left;
+    min-height: 500px;
+    border-right: 1px solid #e2dfdf;
+}
+
+#box-conteudo #menu ul {
+    width: 200px;
+    margin: 0 0 50px 15px;
+    border: 1px solid #ccc;
+    border-bottom: 4px solid #ccc;
+}
+
+#box-conteudo #menu ul li.categoria {
+    width: 200px;
+    height: 25px;
+    color: #5d5959;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0 0 0;
+    background: url("../img/bg-auxiliar.png") repeat-x;
+}
+
+#box-conteudo #menu ul li {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #e2dfdf;;
+}
+
+#box-conteudo #menu ul li a {
+    margin: 10px 0;
+    color: #b40000;
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#box-conteudo #menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/*
++----------------------------------------------------------------+
+	Conteudo
++----------------------------------------------------------------+
+*/
+
+#box-conteudo #conteudo {    
+    width: 55%;
+    float: left;
+    min-height: 500px;
+    border-left: 1px solid #fff;
+}
+
+/*
++----------------------------------------------------------------+
+	Rodapé
++----------------------------------------------------------------+
+*/

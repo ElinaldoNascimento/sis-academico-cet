@@ -6,6 +6,7 @@ $user = $dao->retorna($_GET['id']);
 ?>
 
 <form action="update.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $user->id;?>"><br>
     Nome: <input type="text" name="nome" value="<?php echo $user->nome;?>"><br>
     Login: <input type="text" name="login" value="<?php echo $user->login;?>"><br>
     Senha: **********<br>

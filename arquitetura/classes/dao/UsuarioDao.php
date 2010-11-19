@@ -48,7 +48,17 @@ class UsuarioDao {
         $stmt->bindParam(":id",$usuario->getId());
         $stmt->execute();
         $this->connection->commit();
-        return $id;
+        
+    }
+    public function atualiza_passwd($usuario){
+        $sql = "update usuario set senha =:senha where id =:id";
+        $this->connection->beginTransaction();
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(":senha",$usuario->getSenha());
+        $stmt->bindParam(":id",$usuario->getId());
+        $stmt->execute();
+        $this->connection->commit();
+        
     }
     public function retorna($id){
         $sql = "select*from usuario where id =:id";

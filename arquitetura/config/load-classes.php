@@ -23,6 +23,6 @@ function __autoload($classe) {
              
 
 }
-
-
+$config = new Config();
+$urlBase = $config->url."admin";
 ?>

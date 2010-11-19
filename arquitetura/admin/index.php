@@ -3,8 +3,7 @@ include '../config/load-classes.php';
 $admin = AdminSessionFilter::authSession();
 ?>
 
-<a href="index.php">Index</a><br>
-<a href="logout.php">Logout</a><br>
+<?php include 'menu.php';?>
 
 <?php
 if ($admin->nivel == 0) {

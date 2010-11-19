@@ -6,7 +6,7 @@
 class Config {
     
     public $db;
-    
+    public $url;
 
     public function  __construct() {
 
@@ -17,7 +17,7 @@ class Config {
         $this->db['user'] = "root";
         $this->db['password'] = "";
 
-        
+        $this->url = "http://localhost/arquitetura/";
     }
 }
 ?>

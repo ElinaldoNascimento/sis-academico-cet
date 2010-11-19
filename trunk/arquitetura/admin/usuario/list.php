@@ -2,13 +2,29 @@
 include '../../config/load-classes.php';
 $admin = AdminSessionFilter::authSession();
 $dao = new UsuarioDao();
+
+if($_POST){
+    $usuarioList = $dao->search($_POST['valor']);
+    $valor = $dao->getResult($_POST['valor']);
+}
+else{
+    $usuarioList = $dao->lista();
+}
+?>
+
+<?php
+if($_POST){
+    echo "Foram encontradas {$valor} ocorrencias para \" {$_POST['valor']}\" ";
+}
+
+
 ?>
 
 
 <table border="1" align="center">
     <th>Nome</th><th>Login</th><th>Ativo</th><th colspan="3">A&ccedil;&otilde;es</th>
     <?php
-      foreach ($dao->lista() as $user) {
+      foreach ($usuarioList as $user) {
     ?>
     <tr>
 

@@ -8,4 +8,13 @@ $admin = AdminSessionFilter::authSession();
 <a href="list.php">Lista</a><br>
 
 
+<center>
+
+    <form action="list.php" method="post">
+        Pesquisar <input type="text" name="valor">
+        <input type="submit" value="OK">
+    </form>
+</center>
+
+
    

@@ -1,15 +1,16 @@
 <?php
-include '../config/load-classes.php';
+include '../../config/load-classes.php';
 $admin = AdminSessionFilter::authSession();
+$dao = new UsuarioDao();
 ?>
 
-<a href="index.php">Index</a><br>
-<a href="logout.php">Logout</a><br>
+
 
 <?php
-if ($admin->nivel == 0) {
+foreach ($dao->lista() as $user) {
+
 ?>
-<a href="/usuario/index.php">Administrar Usuários</a>
+<a href=""><?php echo $user->nome;?></a><br>
 <?php } ?>
 
 

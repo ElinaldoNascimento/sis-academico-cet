@@ -15,6 +15,14 @@ class UsuarioDao {
     public function  __construct() {
         $this->connection = Conexao::getConnection();
     }
+
+
+    public function lista(){
+        $sql = "select*from usuario";
+        $stm = $this->connection->query($sql);
+        return $stm->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function adiciona($usuario){
         $sql = "insert into usuario(nome,login,senha,nivel,ativo) values(:nome,:login,:senha,:nivel,:ativo)";
         $this->connection->beginTransaction();

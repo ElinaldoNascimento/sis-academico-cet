@@ -18,7 +18,7 @@ class UsuarioDao {
 
 
     public function lista(){
-        $sql = "select*from usuario";
+        $sql = "select*from usuario order by id desc";
         $stm = $this->connection->query($sql);
         return $stm->fetchAll(PDO::FETCH_OBJ);
     }
@@ -74,6 +74,24 @@ class UsuarioDao {
         $stmt->bindParam(":senha",$usuario->getSenha());
         $stmt->execute();
         return $stmt->fetchObject();
+    }
+
+    public function search($pesq) {
+        $sql = 'select*from usuario where nome like :query or login like :query order by id desc';
+        $stmt = $this->connection->prepare($sql);
+        $query = '%'.$pesq.'%';
+        $stmt->bindParam(':query',$query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function getResult($pesq) {
+        $sql = 'select count(*) from usuario where nome like :query or login like :query order by id desc';
+        $stmt = $this->connection->prepare($sql);
+        $query = '%'.$pesq.'%';
+        $stmt->bindParam(':query',$query);
+        $stmt->execute();
+        return $stmt->fetchColumn();
     }
 }
 ?>

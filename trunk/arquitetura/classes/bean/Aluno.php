@@ -9,6 +9,16 @@ class Aluno extends PessoaFisica{
     private $id_aluno = null;
     private $matricula = null;
     private $id_pessoafisica_foreign = null;
+    private $curso = null;
+
+    public function getCurso() {
+        return $this->curso;
+    }
+
+    public function setCurso($curso) {
+        $this->curso = $curso;
+    }
+
 
     public function getId_aluno() {
 

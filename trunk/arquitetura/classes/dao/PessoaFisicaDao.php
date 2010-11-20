@@ -13,7 +13,7 @@ class PessoaFisicaDao{
         $this->connection = Conexao::getConnection();
     }
 
-    public function insertPessoaFisica($pessoafisica) {
+    public function insertPessoaFisica(PessoaFisica $pessoafisica) {
 
         $sql = "insert into `pessoafisica`(cpf,estadoCivil,sobrenome,dataNascimento,
             sexo,nacionalidade,naturalidade,rg,orgaoExpedidor,estadoExpedidor,id_pessoa)

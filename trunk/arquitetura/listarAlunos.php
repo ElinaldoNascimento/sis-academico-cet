@@ -7,7 +7,7 @@
         </title>
     </head>
     <body>
-        <h3>Lista de Alunos</h3><a href="cadastroAluno.html">Adicionar Aluno</a>
+        <h3>Lista de Alunos</h3><a href="cadastroAluno.html">Adicionar Aluno </a>
          <table width="600" border="1" cellpadding="0" cellspacing="0">
         <tr bgcolor="#CCCCCC">
             <td width="80" align="left"> ID_ALUNO </td>

@@ -1,10 +1,10 @@
 <?php
-/* 
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-class AlunoDao{
+class ProfessorDao{
 
     private $connection = null;
 
@@ -12,7 +12,7 @@ class AlunoDao{
         $this->connection = Conexao::getConnection();
     }
 
-    public function insertAluno(Aluno $aluno) {
+    public function insertAluno(ProfessorDao $professor) {
 
         $sql = "insert into aluno(matricula,id_pessoaFisica) values(:matricula,:id_pessoaFisica)";
 
@@ -51,7 +51,7 @@ class AlunoDao{
            pessoafisica.id_pessoa = pessoa.id_pessoa and
            pessoa.id_contato = contato.id_contato";
 
-      
+
        $stmt = $this->connection->prepare($sql);
 
        $stmt->bindParam(":id_aluno",$aluno->getId_aluno());
@@ -59,7 +59,7 @@ class AlunoDao{
        $stmt->bindParam(":sobrenome",$aluno->getSobrenome());
 
        $stmt->execute();
-      
+
    }
 
        public function selectById( $id_aluno){
@@ -94,28 +94,27 @@ class AlunoDao{
 
 
            } catch (PDOException $e) {
-
                echo $e->getMessage();
                die();
            }
     }
-    
+
        public    function deleteAluno(Aluno $aluno) {
-     
+
            $sql = "delete from aluno where id_aluno=:id_aluno;
                delete from pessoa where id_pessoa=:id_pessoa;
                delete from pessoafisica where id_pessoafisica=:id_pessoafisica;
                delete from contato where id_contato=:id_contato;";
-           
+
            $stmt = $this->connection->prepare($sql);
-           
+
            $stmt->bindParam(":id_aluno",$aluno->getId_aluno());
            $stmt->bindParam(":id_pessoa",$aluno->getId_pessoa());
            $stmt->bindParam(":id_pessoafisica",$aluno->getId_pessoafisica());
            $stmt->bindParam(":id_contato",$aluno->getId_contato());
-           
+
            $stmt->execute();
-           
+
     }
 
 

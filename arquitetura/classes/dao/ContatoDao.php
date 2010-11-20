@@ -42,42 +42,7 @@ class ContatoDao{
         return $id_contato;
         
         
-    }
-
-    public function selectByIdContato($id_contato){
-
-        $sql = "select * from contato where id_contato = ?";
-        $stmt = $this->connection->prepare($sql);
-
-        if($stmt->execute(array($id_contato))){
-            while($row = $stmt->fetch()){
-                
-                $values = new Contato();
-                $values->setCidade($row["cidade"]);
-                $values->setBairro($row["bairro"]);
-                $values->setCep($row["cep"]);
-                $values->setComplemento($row["complemento"]);
-                $values->setEmail($row["email"]);
-                $values->setEndereco($row["endereco"]);
-                $values->setEstado($row["estado"]);
-                $values->setNumero($row["numero"]);
-                $values->setObservacao($row["observacao"]);
-                $values->setTelefoneCelular($row["telefoneFixo"]);
-                $values->setTelefoneFixo($row["telefoneCelular"]);
-            }
-        }
-
-        return $values;
-
-    }
-
-    public function selectAllContatos(){
-        $sql = "select * from contato";
-
-        return $stmt = $this->connection->query($sql);
-    }
-
-    
+    } 
 }
 
 ?>

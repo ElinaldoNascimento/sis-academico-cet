@@ -41,6 +41,17 @@ class MateriaDao{
 
     }
 
+       public function updateMateria($materia){
+
+       $sql = "update materias set nome =:nome where id_materia = :id_materia;";
+
+       $stmt = $this->connection->prepare($sql);
+
+       $stmt->bindParam(":nome",$materia->getNome());
+       $stmt->bindParam(":id_materia",$materia->getId_materia());
+       $stmt->execute();
+
+   }
        public function selectAllMaterias(){
 
        $sql = "select * from materias";
@@ -84,18 +95,7 @@ class MateriaDao{
     }
 
 
-   public function updateMateria($materia){
 
-       $sql = "update materias set nome =:nome where id_materia = :id_materia;";
-
-
-       $stmt = $this->connection->prepare($sql);
-
-       $stmt->bindParam(":id_materia",$aluno->getId_materia());
-       $stmt->bindParam(":nome",$materia->getNome());
-       $stmt->execute();
-
-   }
 }
 
 ?>

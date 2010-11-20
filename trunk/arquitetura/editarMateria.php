@@ -16,7 +16,7 @@ if(isset ($_POST["submit"])){
     $materiaDao = new MateriaDao();
     $materiaDao->updateMateria($materia);
 
-    header("Location:listarAlunos.php");
+    header("Location:listarMaterias.php");
 }
 
 $showmateria = new MateriaDao();
@@ -32,9 +32,9 @@ $materia = $showmateria->selectById($_GET["id_materia"]);
     </head>
     <body>
 
-        <form id="form01" name="form01" method="post" action="">
+        <form id="form01" name="form02" method="post" action="">
 
-            <input type="hidden" name="id_aluno" value="<?php echo $materia->getId_materia();?>"/>
+            <input type="hidden" name="id_materia" value="<?php echo $materia->getId_materia();?>"/>
             Nome:<input type="text" name="nome" value="<?php echo $materia->getNome(); ?>"/><br/>
                         <input type="submit" name="submit" value="Atualizar">
         </form>

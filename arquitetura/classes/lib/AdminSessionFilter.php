@@ -12,20 +12,28 @@
 class AdminSessionFilter {
     
     public static function authUser() {
+        session_start();
         $usuario = new Usuario();
         $dao = new UsuarioDao();
         $config = new Config();
         $usuario->setLogin(trim($_POST['login']));
         $usuario->setSenha(md5(trim($_POST['senha'])));
-        if($dao->verifica($usuario) == null) {
-            header("Location:{$config->url}admin/login.php");
+        $user = $dao->verifica($usuario);
+        if($user == null) {
+            $url = $_SESSION['url'];
+            header("Location:{$url}");
         }
-
         else {
-            session_start();
             $_SESSION['login'] = $usuario->getLogin();
             $_SESSION['senha'] = $usuario->getSenha();
-            header("Location:{$config->url}admin/index.php");
+            $_SESSION['nivel'] = $user->nivel;
+            if($user->nivel == "super"){
+                header("Location:{$config->url}admin/restrito/index.php");
+            }
+            else{
+                header("Location:{$config->url}admin/sistema/index.php");
+            }
+            
         }
     }
 
@@ -54,7 +62,7 @@ class AdminSessionFilter {
         $config = new Config();
         unset ($_SESSION['login']);
         unset ($_SESSION['senha']);
-        header("Location:{$config->url}admin/login.php");
+        header("Location:{$_SESSION['url']}");
     }
     
     

@@ -1,7 +1,7 @@
 <?php
 
 include '../../config/load-classes.php';
-$usuario = AdminSessionFilter::authSession();
+$usuario = AdminSessionFilter::authSuper();
 $id = $_GET['id'];
 ?>
 

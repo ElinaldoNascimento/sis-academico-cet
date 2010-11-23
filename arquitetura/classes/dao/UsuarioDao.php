@@ -24,13 +24,12 @@ class UsuarioDao {
     }
 
     public function adiciona($usuario){
-        $sql = "insert into usuario(nome,login,senha,nivel,ativo) values(:nome,:login,:senha,:nivel,:ativo)";
+        $sql = "insert into usuario(nome,login,senha,ativo) values(:nome,:login,:senha,:ativo)";
         $this->connection->beginTransaction();
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(":nome",$usuario->getNome());
         $stmt->bindParam(":login",$usuario->getLogin());
         $stmt->bindParam(":senha",$usuario->getSenha());
-        $stmt->bindParam(":nivel",$usuario->getNivel());
         $stmt->bindParam(":ativo",$usuario->getAtivo());
         $stmt->execute();
         $id = $this->connection->lastInsertId();
@@ -38,12 +37,11 @@ class UsuarioDao {
         return $id;
     }
     public function atualiza($usuario){
-        $sql = "update usuario set nome =:nome,login =:login,nivel =:nivel, ativo =:ativo where id =:id";
+        $sql = "update usuario set nome =:nome,login =:login,ativo =:ativo where id =:id";
         $this->connection->beginTransaction();
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(":nome",$usuario->getNome());
         $stmt->bindParam(":login",$usuario->getLogin());
-        $stmt->bindParam(":nivel",$usuario->getNivel());
         $stmt->bindParam(":ativo",$usuario->getAtivo());
         $stmt->bindParam(":id",$usuario->getId());
         $stmt->execute();
@@ -74,6 +72,23 @@ class UsuarioDao {
         $stmt->bindParam(":senha",$usuario->getSenha());
         $stmt->execute();
         return $stmt->fetchObject();
+    }
+    public function alteraPermissao($usuario){
+        $sql = "insert into permissoes_usuario(permissao_id,usuario_id) values(:permissao_id,:usuario_id)";
+        foreach ($usuario->getPermissoes() as $permissao) {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindParam(":permissao_id",$permissao);
+            $stmt->bindParam(":usuario_id",$usuario->getId());
+            $stmt->execute();
+        }
+        
+    }
+    public function getPermissions($id){
+        $sql = "select permissao_id,usuario_id,nome from permissoes_usuario inner join permissao on permissao.id = permissoes_usuario.permissao_id where usuario_id =:id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(":id",$id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function search($pesq) {

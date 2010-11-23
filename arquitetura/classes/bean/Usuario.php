@@ -16,6 +16,7 @@ class Usuario {
     private $senha;
     private $nivel;
     private $ativo;
+    private $permissoes = array();
 
     public function getId() {
         return $this->id;
@@ -66,6 +67,14 @@ class Usuario {
         $this->nivel = $nivel;
     }
 
-    
+    public function getPermissoes() {
+        return $this->permissoes;
+    }
+
+    public function setPermissoes($permissoes) {
+        $this->permissoes = $permissoes;
+    }
+
+
 }
 ?>

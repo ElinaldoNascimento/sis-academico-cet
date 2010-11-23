@@ -22,7 +22,7 @@ if($_POST){
 
 
 <table border="1" align="center">
-    <th>Nome</th><th>Login</th><th>Ativo</th><th colspan="3">A&ccedil;&otilde;es</th>
+    <th>Nome</th><th>Login</th><th>Ativo</th><th colspan="4">A&ccedil;&otilde;es</th>
     <?php
       foreach ($usuarioList as $user) {
     ?>
@@ -33,6 +33,7 @@ if($_POST){
         <td><?php echo $user->ativo;?></td>
         <td><a href="view.php?id=<?php echo $user->id;?>">Vizualizar</a></td>
         <td><a href="edit.php?id=<?php echo $user->id;?>">Editar</a></td>
+        <td><a href="edit_perm.php?id=<?php echo $user->id;?>">Editar Permiss&otilde;es</a></td>
         <td><a href="edit_passwd.php?id=<?php echo $user->id;?>">Redefinir senha</a></td>
     </tr>
 <?php } ?>

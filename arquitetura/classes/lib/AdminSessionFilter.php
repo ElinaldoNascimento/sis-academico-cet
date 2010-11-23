@@ -43,7 +43,7 @@ class AdminSessionFilter {
         $senha = $_SESSION['senha'];
         $config = new Config();
         if(empty ($login) || empty ($senha)) {
-            header("Location:{$config->url}admin/login.php");
+            header("Location:{$config->url}/");
         }
         else {
             $usuario = new Usuario();
@@ -52,7 +52,7 @@ class AdminSessionFilter {
             $usuario->setSenha($senha);
             $user = $dao->verifica($usuario);
             if($user == null) {
-                header("Location:{$config->url}admin/login.php");
+                header("Location:{$config->url}/");
             }
         }
         return $user;

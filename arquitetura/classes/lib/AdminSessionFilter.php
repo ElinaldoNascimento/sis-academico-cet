@@ -43,7 +43,7 @@ class AdminSessionFilter {
         $senha = $_SESSION['senha'];
         $config = new Config();
         if(empty ($login) || empty ($senha)) {
-            header("Location:{$config->url}/");
+            header("Location:{$config->url}");
         }
         else {
             $usuario = new Usuario();
@@ -52,11 +52,43 @@ class AdminSessionFilter {
             $usuario->setSenha($senha);
             $user = $dao->verifica($usuario);
             if($user == null) {
-                header("Location:{$config->url}/");
+                $_SESSION = array();
+                header("Location:{$config->url}");
             }
         }
         return $user;
     }
+
+    public static function authSuper() {
+        session_start();
+        $login = $_SESSION['login'];
+        $senha = $_SESSION['senha'];
+        $config = new Config();
+        if(empty ($login) || empty ($senha)) {
+            header("Location:{$config->url}");
+        }
+        else {
+            $usuario = new Usuario();
+            $dao = new UsuarioDao();
+            $usuario->setLogin($login);
+            $usuario->setSenha($senha);
+            $user = $dao->verifica($usuario);
+            if($user != null) {
+                if($user->nivel != "super"){
+                    $_SESSION = array();
+                    header("Location:{$config->url}");
+                }
+            }
+            else{
+                $_SESSION = array();
+                header("Location:{$config->url}");
+            }
+        }
+        return $user;
+    }
+
+
+
     public static function logout() {
         session_start();
         $config = new Config();

@@ -1,6 +1,6 @@
 <?php
 include '../../config/load-classes.php';
-$admin = AdminSessionFilter::authSession();
+$admin = AdminSessionFilter::authSuper();
 $dao = new UsuarioDao();
 
 if($_POST){

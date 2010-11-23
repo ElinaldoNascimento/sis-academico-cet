@@ -10,6 +10,7 @@ $user = $dao->retorna($_GET['id']);
 Nome: <?php echo $user->nome; ?><br>
 Login: <?php echo $user->login; ?><br>
 Senha: ****** <br>
+Nivel: <?php echo $user->nivel; ?><br>
 Ativo: <?php echo $user->ativo; ?><br>
 
 

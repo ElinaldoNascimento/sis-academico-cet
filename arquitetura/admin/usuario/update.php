@@ -8,6 +8,7 @@ $dao = new UsuarioDao();
 $user->setId($id);
 $user->setNome(trim($_POST['nome']));
 $user->setLogin(trim($_POST['login']));
+$user->setNivel($_POST['nivel']);
 if (!empty($_POST['ativo'])) {
     $user->setAtivo(1);
 } else {

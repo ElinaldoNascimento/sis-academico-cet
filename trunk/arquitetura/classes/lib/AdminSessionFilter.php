@@ -1,8 +1,9 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
-*/
+ */
 
 /**
  * Description of AdminSessionFilter
@@ -10,7 +11,7 @@
  * @author Marcus Vinicius
  */
 class AdminSessionFilter {
-    
+
     public static function authUser() {
         session_start();
         $usuario = new Usuario();
@@ -19,21 +20,13 @@ class AdminSessionFilter {
         $usuario->setLogin(trim($_POST['login']));
         $usuario->setSenha(md5(trim($_POST['senha'])));
         $user = $dao->verifica($usuario);
-        if($user == null) {
-            $url = $_SESSION['url'];
-            header("Location:{$url}");
-        }
-        else {
+        if ($user == null) {
+            header("Location:{$config->url}admin/login_sistema.php");
+        } else {
             $_SESSION['login'] = $usuario->getLogin();
             $_SESSION['senha'] = $usuario->getSenha();
             $_SESSION['nivel'] = $user->nivel;
-            if($user->nivel == "super"){
-                header("Location:{$config->url}admin/restrito/index.php");
-            }
-            else{
-                header("Location:{$config->url}admin/sistema/index.php");
-            }
-            
+            header("Location:{$config->url}admin/sistema/index.php");
         }
     }
 
@@ -42,18 +35,17 @@ class AdminSessionFilter {
         $login = $_SESSION['login'];
         $senha = $_SESSION['senha'];
         $config = new Config();
-        if(empty ($login) || empty ($senha)) {
-            header("Location:{$config->url}");
-        }
-        else {
+        if (empty($login) || empty($senha)) {
+            header("Location:{$config->url}admin/login_sistema.php");
+        } else {
             $usuario = new Usuario();
             $dao = new UsuarioDao();
             $usuario->setLogin($login);
             $usuario->setSenha($senha);
             $user = $dao->verifica($usuario);
-            if($user == null) {
+            if ($user == null) {
                 $_SESSION = array();
-                header("Location:{$config->url}");
+                header("Location:{$config->url}admin/login_sistema.php");
             }
         }
         return $user;
@@ -64,39 +56,35 @@ class AdminSessionFilter {
         $login = $_SESSION['login'];
         $senha = $_SESSION['senha'];
         $config = new Config();
-        if(empty ($login) || empty ($senha)) {
+        if (empty($login) || empty($senha)) {
             header("Location:{$config->url}");
-        }
-        else {
+        } else {
             $usuario = new Usuario();
             $dao = new UsuarioDao();
             $usuario->setLogin($login);
             $usuario->setSenha($senha);
             $user = $dao->verifica($usuario);
-            if($user != null) {
-                if($user->nivel != "super"){
+            if ($user != null) {
+                if ($user->nivel != "super") {
                     $_SESSION = array();
-                    header("Location:{$config->url}");
+                    header("Location:{$config->url}admin/login_sistema.php");
                 }
-            }
-            else{
+            } else {
                 $_SESSION = array();
-                header("Location:{$config->url}");
+                header("Location:{$config->url}admin/login_sistema.php");
             }
         }
         return $user;
     }
 
-
-
     public static function logout() {
         session_start();
         $config = new Config();
-        unset ($_SESSION['login']);
-        unset ($_SESSION['senha']);
-        header("Location:{$_SESSION['url']}");
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        header("Location:{$config->url}admin/login_sistema.php");
     }
-    
-    
+
 }
+
 ?>

@@ -1,6 +1,8 @@
 #AddDefaultCharset iso-8859-1
 AddDefaultCharset UTF-8
 RewriteEngine on
-RewriteRule !\.(php|css|png|jpg|gif|js|htm|html)$ index.php
+RewriteRule ^$ index.php
+RewriteRule ^admin/$ admin/index.php
+RewriteRule !\.(php|css|png|jpg|gif|js|htm|html)$ 404.html
 
 

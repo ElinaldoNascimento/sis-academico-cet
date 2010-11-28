@@ -7,9 +7,18 @@
 class Curso{
 
     private $id_curso = null;
+    private $id_perido = null;
     private $nome = null;
 
-    public function getId_curso() {
+    public function getId_perido() {
+        return $this->id_perido;
+    }
+
+    public function setId_perido($id_perido) {
+        $this->id_perido = $id_perido;
+    }
+
+        public function getId_curso() {
         return $this->id_curso;
     }
 

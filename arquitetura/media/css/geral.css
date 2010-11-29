@@ -6,7 +6,6 @@
 */
 
 /*
-   TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
@@ -297,7 +296,6 @@ body {
     width: 960px;
     margin: 0 auto;
     min-height: 600px;
-    ddisplay: inline-table;
     border: 1px solid #c2c1c1;
     background: #fff;
     border-top: 0;
@@ -413,3 +411,18 @@ body {
 	Rodapé
 +----------------------------------------------------------------+
 */
+
+#rodape {
+    width: 100%;
+    padding: 20px 0;
+}
+
+#rodape p {
+    margin: 20px;
+    display: inline;
+}
+
+#rodape p a img {
+    width: 88px;
+    height: 31px
+}

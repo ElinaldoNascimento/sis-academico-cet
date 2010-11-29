@@ -1,0 +1,67 @@
+/*
+    Document   : cadastro de professor
+    Created on : 16/11/2010, 15:32:34
+    Author     : Denilson
+    Description: CSS da página cadastro de professor
+*/
+
+/*
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
++----------------------------------------------------------------+
+	Conteudo
++----------------------------------------------------------------+
+*/
+
+#box-conteudo #conteudo {    
+    width: 74%;
+    float: left;
+    min-height: 500px;
+    border-left: 1px solid #fff;
+}
+
+#conteudo form {
+    margin-left: 30px;
+}
+
+#conteudo form fieldset legend {
+    color: #fff;
+    width: 500px;
+    padding: 3px 0;
+    text-align: left;
+    font-weight: bold;
+    -moz-border-radius: 4px;
+}
+
+#conteudo form fieldset legend#grupo-dados-pessoais { background: #c16a14; }
+
+#conteudo form fieldset legend#grupo-endereco { background: #86860b; }
+
+#conteudo form fieldset legend#grupo-dados-academicos { background: #0b7386; }
+
+#conteudo form fieldset legend img {    
+    float: left;
+    margin: 0 15px;
+}
+
+#conteudo form fieldset p {
+    float: left;
+    margin: 5px 0;
+    color: #7e7e7c;
+}
+
+#conteudo form fieldset p label {
+    float: left;
+    width: 120px;
+    text-align: right;
+}
+
+#conteudo form fieldset p input {
+    color: #fff;
+    width: 400px;
+    padding: 6px;
+    margin-left: 10px;
+    background: #494948;
+}

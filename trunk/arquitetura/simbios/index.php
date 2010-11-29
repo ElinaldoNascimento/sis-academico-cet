@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>SIMBIOS - inicio</title>
@@ -100,7 +101,16 @@
         </div>
 
         <div id="rodape">
-            
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS válido!" />
+                </a>
+            </p>
+            <p>
+                <a href="http://validator.w3.org/check?uri=referer">
+                    <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" />
+                </a>
+            </p>
         </div>
         
     </body>

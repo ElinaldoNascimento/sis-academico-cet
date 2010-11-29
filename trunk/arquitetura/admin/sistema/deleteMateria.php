@@ -1,11 +1,6 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- *
- */
-
-include 'config/load-classes.php';
+include '../../config/load-classes.php';
+$admin = AdminSessionFilter::authSession();
 
 $showmateria = new MateriaDao();
 $materia = new Materia();

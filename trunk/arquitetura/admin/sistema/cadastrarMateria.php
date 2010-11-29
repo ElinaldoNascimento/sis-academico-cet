@@ -1,10 +1,7 @@
 <?php
+include '../../config/load-classes.php';
+$admin = AdminSessionFilter::authSession();
 
-// <editor-fold defaultstate="collapsed" desc="comment">
-// </editor-fold>
-
-
-include 'config/load-classes.php';
 
 if(isset ($_POST["ad_materia"])){
 
